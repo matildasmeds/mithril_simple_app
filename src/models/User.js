@@ -1,3 +1,5 @@
+
+
 var m = require("mithril");
 
 var User = {
@@ -27,6 +29,15 @@ var User = {
 	    url: "https://rem-rest-api.herokuapp.com/api/users/" + User.current.id,
 	    data: User.current,
 	    withCredentials: true,
+	});
+    },
+    deleteCurrent: function() {
+	return m.request({
+	    method: "DELETE",
+	    url: "https://rem-rest-api.herokuapp.com/api/users/" + User.current.id,
+	    withCredentials: true,
+	}).then(function() {
+	    m.route.set("/");
 	});
     }
 };
