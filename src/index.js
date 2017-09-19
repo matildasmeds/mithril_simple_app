@@ -2,7 +2,7 @@
 var m = require("mithril");
 
 var UserList = require("./views/UserList");
-var UserForm = require("./views/UserForm");
+var EditUser = require("./views/EditUser");
 var Layout = require("./views/Layout");
 
 m.route(document.body, "/list", {
@@ -13,7 +13,7 @@ m.route(document.body, "/list", {
     },
     "/edit/:id": {
 	render: function(vnode) {
-	    return m(Layout, m(UserForm, vnode.attrs));
+	    return m(Layout, m(EditUser, vnode.attrs));
 	}
     }
 });
