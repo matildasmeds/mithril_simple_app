@@ -31,6 +31,14 @@ var User = {
 	    withCredentials: true,
 	});
     },
+    create: function() {
+	return m.request({
+	    method: "POST",
+	    url: "https://rem-rest-api.herokuapp.com/api/users",
+	    data: User.current,
+	    withCredentials: true,
+	});
+    },
     deleteCurrent: function() {
 	return m.request({
 	    method: "DELETE",
