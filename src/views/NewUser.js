@@ -3,6 +3,7 @@ var User = require("../models/User");
 var UserForm = require("./UserForm");
 
 module.exports = {
+    oninit: function() { User.current = {}; },
     view: function() {
 	return m(".userform-container",
 		 [
