@@ -16,5 +16,6 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Implement Error messages
 * Paging for list-view
 * Tests
+* Transition effects (with velocity.js?)
 * Translations (just to see how it's done)
 * Further CSS tweaks (subtler button:focus, crisper input:focus)
