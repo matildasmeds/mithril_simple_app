@@ -1,6 +1,15 @@
-
-
 var m = require("mithril");
+var Messages = require("../views/Messages");
+
+// User object
+// * Contains all user data
+// * Handles API requests related to users
+// * Shows messages based on API request results
+
+// User object does not
+// * Navigate
+// * Clear messages
+// * Process data
 
 var User = {
     list: [],
@@ -23,12 +32,14 @@ var User = {
 	    User.current = result;
 	});
     },
-    save: function() {
+   save: function() {
 	return m.request({
 	    method: "PUT",
 	    url: "https://rem-rest-api.herokuapp.com/api/users/" + User.current.id,
 	    data: User.current,
 	    withCredentials: true,
+	}).then(function() {
+	    Messages.show({ success: "User saved." });
 	});
     },
     create: function() {
@@ -37,6 +48,8 @@ var User = {
 	    url: "https://rem-rest-api.herokuapp.com/api/users",
 	    data: User.current,
 	    withCredentials: true,
+	}).then(function() {
+	    Messages.show({ success: "New user created." });
 	});
     },
     deleteCurrent: function() {
@@ -45,7 +58,7 @@ var User = {
 	    url: "https://rem-rest-api.herokuapp.com/api/users/" + User.current.id,
 	    withCredentials: true,
 	}).then(function() {
-	    m.route.set("/");
+	    Messages.show({ success: "User deleted." });
 	});
     }
 };
