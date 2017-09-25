@@ -20,6 +20,9 @@ var User = {
 	    withCredentials: true,
 	}).then(function(result) {
 	    User.list = result.data;
+	    if (User.list.length === 0) {
+		Messages.show({ info: "No users found." });
+	    }
 	});
     },
     current: {},
@@ -50,6 +53,7 @@ var User = {
 	    withCredentials: true,
 	}).then(function(data) {
 	    User.current.id = data.id;
+	    User.list.push(User.current);
 	    Messages.show({ success: "New user created." });
 	});
     },

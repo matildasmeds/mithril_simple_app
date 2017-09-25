@@ -14,9 +14,10 @@ var Messages = {
 	return m(".messages-region", list.map(function(message) {
 	    if (message.success) {
    		return m(".message.success-message", message.success);
+	    } else if (message.info) {
+   		return m(".message.info-message", message.info);
 	    }
 	}));
     }
 };
 module.exports = Messages;
-

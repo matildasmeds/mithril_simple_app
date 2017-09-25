@@ -6,13 +6,13 @@ var Messages = require("./Messages");
 var onClickDelete = function() {
     Messages.clear();
     User.deleteCurrent().then(function() {
+	User.current = {};
 	m.route.set("/");
     });
 };
 
 module.exports = {
     oninit: function(vnode) {
-	Messages.clear();
 	User.load(vnode.attrs.id);
     },
     view: function() {
