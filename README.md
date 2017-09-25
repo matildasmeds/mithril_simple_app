@@ -11,6 +11,7 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Some CSS tweaks 
 
 ## Further ideas
+* Clear messages when saving UserForm
 * Deploy link
 * Implement Error messages
 * Paging for list-view
