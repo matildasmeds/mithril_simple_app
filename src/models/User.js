@@ -48,7 +48,8 @@ var User = {
 	    url: "https://rem-rest-api.herokuapp.com/api/users",
 	    data: User.current,
 	    withCredentials: true,
-	}).then(function() {
+	}).then(function(data) {
+	    User.current.id = data.id;
 	    Messages.show({ success: "New user created." });
 	});
     },

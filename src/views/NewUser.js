@@ -13,7 +13,9 @@ module.exports = {
 		 [   m("form", {
 			 onsubmit: function(e) {
 			     e.preventDefault();
-			     User.create();
+			     User.create().then(function() {
+				 m.route.set("/edit/" + User.current.id);
+			     });
 			 }
 		     }, UserForm(User)),
 		 ]

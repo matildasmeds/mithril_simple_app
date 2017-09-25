@@ -11,11 +11,9 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Some CSS tweaks 
 
 ## Further ideas
-* Navigate to Edit-view, after creating a new user
 * Deploy link
 * Implement Error messages
 * Paging for list-view
 * Tests
 * Transition effects (with velocity.js?)
 * Translations (just to see how it's done)
-* Further CSS tweaks (subtler button:focus, crisper input:focus)
