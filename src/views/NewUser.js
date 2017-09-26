@@ -5,7 +5,6 @@ var Messages = require("./Messages");
 
 module.exports = {
     oninit: function() {
-	Messages.clear();
         User.current = {};
     },
     view: function() {
@@ -20,6 +19,5 @@ module.exports = {
 		     }, UserForm(User)),
 		 ]
 		);
-o
     }
 }

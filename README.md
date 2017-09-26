@@ -8,10 +8,10 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Create new user
 * Delete existing user
 * Show success message Create, Update, Delete
+* Clear messages on navigate
 * Some CSS tweaks 
 
 ## Further ideas
-* Clear messages when saving UserForm
 * Deploy link
 * Implement Error messages
 * Paging for list-view
