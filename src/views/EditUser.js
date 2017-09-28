@@ -18,14 +18,20 @@ module.exports = {
     view: function() {
 	return m(".userform-container",
 		 [
-		     m("form", {
-			 onsubmit: function(e) {
-			     e.preventDefault();
-			     User.save();
-			 }
-		     }, UserForm(User)),
-		     m("button.button", { onclick: onClickDelete }, "Delete")
-		 ],
+		     m("form",
+		       {
+			   onsubmit: function(e) {
+			       e.preventDefault();
+			       User.save();
+			   }
+		       },
+		       UserForm(User)
+		      ),
+		     m("button.button",
+		       { onclick: onClickDelete },
+		       "Delete"
+		      )
+		 ]
 		);
     }
 };
