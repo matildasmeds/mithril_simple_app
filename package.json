@@ -1,7 +1,7 @@
 {
   "name": "mithril_simple_app",
   "version": "1.0.0",
-  "description": "",
+  "description": "Practice project based on Mithril Simple Application tutorial",
   "main": "index.js",
   "scripts": {
       "start": "webpack src/index.js bin/app.js -d --watch",
@@ -12,6 +12,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "4.2.4"
+  },
   "dependencies": {
     "mithril": "^1.1.3"
   },
