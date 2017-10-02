@@ -12,9 +12,8 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Some CSS tweaks 
 
 ## Further ideas
-* Deploy link
 * Implement Error messages
-* Paging for list-view
+* Paging for list-view / "Datatable"
 * Tests
 * Transition effects (with velocity.js?)
 * Translations (just to see how it's done)
