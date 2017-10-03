@@ -1,5 +1,5 @@
 var m = require("mithril");
-var Messages = require("./Messages");
+var Messages = require("../Messages");
 
 module.exports = function(User) {
     return [

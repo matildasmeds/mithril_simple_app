@@ -1,15 +1,15 @@
 // index.js
 var m = require("mithril");
 
-var UserList = require("./views/UserList");
-var EditUser = require("./views/EditUser");
-var NewUser = require("./views/NewUser");
+var ListUsers = require("./views/users/List");
+var EditUser = require("./views/users/Edit");
+var NewUser = require("./views/users/New");
 var Layout = require("./views/Layout");
 
 m.route(document.body, "/list", {
     "/list": {
 	render: function() {
-	    return m(Layout, m(UserList));
+	    return m(Layout, m(ListUsers));
 	}
     },
     "/edit/:id": {

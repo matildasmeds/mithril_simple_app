@@ -1,6 +1,6 @@
 var m = require("mithril");
-var User = require("../models/User");
-var Messages = require("./Messages");
+var User = require("../../models/User");
+var Messages = require("../Messages");
 // workaround for Mithril Issue 1709
 var onClick = function(user) {
     return function() {

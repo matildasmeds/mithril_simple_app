@@ -1,7 +1,7 @@
 var m = require("mithril");
-var User = require("../models/User");
+var User = require("../../models/User");
 var UserForm = require("./UserForm");
-var Messages = require("./Messages");
+var Messages = require("../Messages");
 
 module.exports = {
     oninit: function() {
