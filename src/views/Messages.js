@@ -1,7 +1,7 @@
 
 // src/views/Messages.js
 var m = require("mithril");
-var list = []; // Use lexical scope to have private list varianle
+var list = []; // Use lexical scope to have private list variable
 
 var Messages = {
     show: function(message) {

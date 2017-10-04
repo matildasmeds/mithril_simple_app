@@ -1,3 +1,6 @@
+// Maybe this is a useful example of using Jest snapshots with Mithril
+// Looking at this example not clear why use mithril-jest, and not
+// https://github.com/htacg/tidy-html5 directly?
 var  m = require("mithril");
 var tidy = require("mithril-jest").tidy;
 

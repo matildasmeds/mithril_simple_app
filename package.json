@@ -24,6 +24,7 @@
       "webpack": "^3.5.6"
    },
    "devDependencies": {
-      "mithril-jest": "^0.1.7"
+      "mithril-jest": "^0.1.7",
+      "mithril-query": "^2.2.0"
    }
 }

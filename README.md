@@ -10,10 +10,15 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Show success message Create, Update, Delete
 * Clear messages on navigate
 * Some CSS tweaks 
+* Test src/views/Messages
 
 ## Further ideas
 * Implement Error messages
 * Paging for list-view / "Datatable"
-* Tests
+* More tests
 * Transition effects (with velocity.js?)
 * Translations (just to see how it's done)
+* Check if mithril-jest really adds value here, or would html5-tidy bring same jest snapshot functionality
+* Simple deploy script (run lints & tests & push to bin/app.js to gh-pages)
+* Mark which tab is active visually
+* Switch to yarn and see how it works out
