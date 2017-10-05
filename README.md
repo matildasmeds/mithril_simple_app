@@ -11,10 +11,10 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Clear messages on navigate
 * Some CSS tweaks 
 * Test src/views/Messages
+* Pagination for User list
 
 ## Further ideas
 * Implement Error messages
-* Paging for list-view / "Datatable"
 * More tests
 * Transition effects (with velocity.js?)
 * Translations (just to see how it's done)

@@ -1,24 +1,32 @@
 var m = require("mithril");
 var Messages = require("../views/Messages");
+var Pagination = require("../views/Pagination");
 
-// User object
+// User
 // * Contains all user data
 // * Handles API requests related to users
 // * Shows messages based on API request results
+// * Updates Pagination on User.loadList
 
-// User object does not
+// Does not
 // * Navigate
 // * Clear messages
-// * Process data
 
 var User = {
     list: [],
-    loadList: function() {
+    loadList: function(_opts) {
+	var _opts = (typeof(_opts) !== "undefined") ? _opts : { offset: 0, limit: 10 };
+	var opts = "?offset=" + _opts.offset + "&limit=" + _opts.limit;
         return m.request({
 	    method: "GET",
-	    url: "https://rem-rest-api.herokuapp.com/api/users",
+	    url: "https://rem-rest-api.herokuapp.com/api/users" + opts,
 	    withCredentials: true,
 	}).then(function(result) {
+	    var opts = { total: result.total,
+			 limit: result.limit,
+			 offset: result.offset
+		       }; // ideally result should be inmutable
+	    Pagination.update(opts);
 	    User.list = result.data;
 	    if (User.list.length === 0) {
 		Messages.show({ info: "No users found." });
