@@ -12,7 +12,7 @@ body,.input,.button {font:normal 16px Verdana;margin:0;color:#262635;}
 .success-message {color:#186818;background-color:mintcream;border:1px solid #4C954C;}
 .info-message {color:#21465E;background-color:aliceblue;border:1px solid #4D81A4;}
 
-
+.pagination-item {display:inline-block;border-radius:50%;border:1px solid slateblue;width:2em;height:2em;text-align:center;line-height:2em;margin-right:1em;}
 
 .user-list {list-style:none;margin:20px 10px;padding:0;}
 .user-list-item {background:#fafafa;border:1px solid #ddd;color:#333;display:block;margin:0 0 1px;padding:8px 15px;text-decoration:none;}
