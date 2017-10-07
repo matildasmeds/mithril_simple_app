@@ -1,5 +1,6 @@
 // src/views/Pagination.js
 var m = require("mithril");
+var Messages = require("./Messages");
 
 var Pagination = {
     // Always call with create, to set callback correctly
@@ -68,6 +69,7 @@ var Pagination = {
 
 var onClick = function(page, Pagination) {
     return function() {
+	Messages.clear();
 	opts = {
 	    offset: (page - 1) * Pagination.limit, // for 1st page 0 offset
 	    limit: Pagination.limit,

@@ -28,7 +28,7 @@ describe("Messages view", function() {
 	Messages.show({ error: "Whoops."});
 	var out = mq(view);
 	var msg = out.rootNode.children[0];
-	showsMessage(msg, "Whoops", "message error-message");
+	showsMessage(msg, "Whoops.", "message error-message");
     });
     it("Is empty by default", function() {
 	var out = mq(view);

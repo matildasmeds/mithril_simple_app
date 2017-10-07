@@ -18,7 +18,7 @@ var page = {
 describe("Page component", function() {
     it("Should have a title", function() {
 	var cmp = m(page);
-	const html = tidy(cmp);
+	var html = tidy(cmp);
 	expect(html).toMatchSnapshot();
     });
 });

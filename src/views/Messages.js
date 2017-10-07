@@ -15,6 +15,8 @@ var Messages = {
    		return m(".message.success-message", message.success);
 	    } else if (message.info) {
    		return m(".message.info-message", message.info);
+	    } else if (message.error) {
+		return m(".message.error-message", message.error);
 	    }
 	}));
     }
