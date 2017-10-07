@@ -8,7 +8,7 @@ echo "eslint src passed" &&
 eslint test &&
 echo "eslint test passed" &&
 npm test &&
-npm build &&
+npm run-script build &&
 for file in "${build_files[@]}"
 do
     cp "$file" "${file}.deploy"
