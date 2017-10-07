@@ -20,3 +20,4 @@ Using [Mithril Simple Application Tutorial](https://mithril.js.org/simple-applic
 * Check if mithril-jest really adds value here, or would html5-tidy bring same jest snapshot functionality
 * Mark which tab is active visually
 * Switch to yarn and see how it works out
+* Hide pagination link if there is only one page
