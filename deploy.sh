@@ -7,7 +7,8 @@ eslint src &&
 echo "eslint src passed" &&
 eslint test &&
 echo "eslint test passed" &&
-#npm test &&
+npm test &&
+npm build &&
 for file in "${build_files[@]}"
 do
     cp "$file" "${file}.deploy"
@@ -17,12 +18,5 @@ for file in "${build_files[@]}"
 do
     mv "${file}.deploy" "$file"
 done &&
-for file in "${build_files[@]}"
-do
-    git add "$file"
-done &&
-git commit -m 'Deploy' &&
-git push -f
-
-
+echo "Done. Check changes and commit manually."
 
