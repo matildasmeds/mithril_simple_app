@@ -1,7 +1,7 @@
 var m = require("mithril");
 var User = require("../../models/User");
 var Messages = require("../Messages");
-var Pagination = require("../Pagination");
+var Pagination = require("../Pagination").new(User.loadList);
 
 // workaround for Mithril Issue 1709
 var onClick = function(user) {
