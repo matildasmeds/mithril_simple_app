@@ -1,6 +1,5 @@
 var m = require("mithril");
 var Messages = require("../views/Messages");
-var Pagination = require("../views/Pagination");
 
 // User
 // * Contains all user data
@@ -22,15 +21,14 @@ var User = {
 	    url: "https://rem-rest-api.herokuapp.com/api/users" + opts,
 	    withCredentials: true,
 	}).then(function(result) {
-	    var opts = { total: result.total,
-			 limit: result.limit,
-			 offset: result.offset
-		       }; // ideally result should be inmutable
-	    Pagination.update(opts);
 	    User.list = result.data;
 	    if (User.list.length === 0) {
 		Messages.show({ info: "No users found." });
 	    }
+	    return { total: result.total,
+		     limit: result.limit,
+		     offset: result.offset
+		   }; // for next handler
 	});
     },
     current: {},

@@ -2,80 +2,88 @@
 var m = require("mithril");
 var Messages = require("./Messages");
 
+var State = {
+    total: null,
+    limit: null,
+    offset: null,
+    currPage: 1,
+    pageCount: 0,
+    links: [],
+}
+
+var Link = {
+    create: function(page) {
+	var attrs = { id: "link-to-page-" + page,
+		      onclick: Link.onClick(page, State) };
+	if (page === State.currPage) {
+	    attrs.class = "active";
+	}
+	return m("a.pagination-link", attrs, page);
+    },
+    onClick: function(page) {
+	return function() {
+	    Messages.clear();
+	    opts = {
+		offset: (page - 1) * State.limit, // for 1st page 0 offset
+		limit: State.limit,
+	    };
+	    Pagination.getData(opts);
+	}
+    }
+}
+
 var Pagination = {
-    // Always call with create, to set callback correctly
-    new: function(callback) {
-	Pagination.callback = callback;
+    // Initialize Pagination component with Pagination.for()
+    for: function(getDataCB) {
+	console.log(getDataCB);
+	Pagination.getData = function(opts) {
+	    getDataCB(opts).then(function(result) {
+		Pagination.updateLinks(result);
+	    });
+	}
 	return Pagination;
     },
-    callback: null, // should contain a function
-    total: null, // int
-    limit: null, // int
-    offset: null, // int
-    currPage: 1, // int
-    pageCount: 0, // int
-    items: [],
-    // Called when GET request returns
-    update: function(opts) {
-	Pagination.total = opts.total;
-	Pagination.limit = opts.limit;
-	Pagination.offset = opts.offset;
-
-	// Check if pageCount or currPage has changed
-	var pageCountWas = Pagination.pageCount;
-	var currPageWas = Pagination.currPage;
-	Pagination.pageCount = Math.floor( opts.total / opts.limit );
-        Pagination.currPage = (opts.offset + 10) / opts.limit;
-	if (opts.total % opts.limit !== 0) {
-	    Pagination.pageCount += 1;
-	}
-
-	if (pageCountWas !== Pagination.pageCount) {
-	    Pagination.refreshItems(); // includes active class
-	} else if (currPageWas !== Pagination.currPage) {
-	    Pagination.setActive(); // handles only the active class
-	}
+    getData: function() {
+	console.log("Callback not initialized, cannot fetch data.");
     },
-    refreshItems: function() {
-	var items = [];
-	for (var page=1; page <= Pagination.pageCount; page++) {
-	    var attrs = { id: "link-to-page-" + page,
-			  onclick: onClick(page, Pagination) };
-	    if (page === Pagination.currPage) {
-		attrs.class = "active";
-	    }
-	    var item = m("a.pagination-link", attrs, page);
-	    items.push(item);
-	}
-	Pagination.items = items;
+    updateLinks: function(result) {
+	State.total = result.total;
+	State.limit = result.limit;
+	State.offset = result.offset;
+
+	var pageCountWas = State.pageCount;
+	State.pageCount = Math.floor( result.total / result.limit );
+	if (result.total % result.limit !== 0) { State.pageCount += 1; }
+        var pageCountChanged = (pageCountWas !== State.pageCount);
+
+	var currPageWas = State.currPage;
+        State.currPage = (result.offset + 10) / result.limit;
+        var currPageChanged = (currPageWas !== State.currPage);
+
+	if (pageCountChanged) { Pagination.createLinks();
+	} else if (currPageChanged) { Pagination.setActiveLink(); }
+
     },
-    setActive: function() {
-       // clear all ... is this crude?
-       var links = document.getElementById("pagination-links").children;
-       for (var i = 0; i < links.length; i++) {
-           links[i].classList.remove("active");
-       }
-       var active = document.getElementById("link-to-page-" + Pagination.currPage);
-       active.classList.add("active");
+    createLinks: function() {
+	var links = [];
+	for (var page=1; page <= State.pageCount; page++) {
+	    links.push(Link.create(page));
+	}
+	State.links = links;
+    },
+    setActiveLink: function() {
+	var links = document.getElementById("pagination-links").children;
+	for (var i = 0; i < links.length; i++) { links[i].classList.remove("active"); }
+	var active = document.getElementById("link-to-page-" + State.currPage);
+	active.classList.add("active");
     },
     view: function() {
 	return m(".pagination-region",
 		 [ m("div.pagination-links",
 		     { id: "pagination-links" },
-		     Pagination.items) ]
+		     State.links) ]
 		);
     }
 };
-
-var onClick = function(page, Pagination) {
-    return function() {
-	Messages.clear();
-	opts = {
-	    offset: (page - 1) * Pagination.limit, // for 1st page 0 offset
-	    limit: Pagination.limit,
-	};
-	Pagination.callback(opts);
-    }
-}
 
 module.exports = Pagination;

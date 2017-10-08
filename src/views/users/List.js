@@ -1,7 +1,7 @@
 var m = require("mithril");
 var User = require("../../models/User");
 var Messages = require("../Messages");
-var Pagination = require("../Pagination").new(User.loadList);
+var Pagination = require("../Pagination").for(User.loadList);
 
 // workaround for Mithril Issue 1709
 var onClick = function(user) {
@@ -12,9 +12,7 @@ var onClick = function(user) {
 };
 
 module.exports = {
-    oninit: function() {
-	User.loadList();
-    },
+    oninit: Pagination.getData,
     view: function() {
 	return m(".views-users-list",
 		 [ m(Pagination),
