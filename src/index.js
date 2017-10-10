@@ -1,10 +1,10 @@
 // index.js
 var m = require("mithril");
 
+var Layout = require("./views/Layout");
 var ListUsers = require("./views/users/List");
 var EditUser = require("./views/users/Edit");
 var NewUser = require("./views/users/New");
-var Layout = require("./views/Layout");
 
 m.route(document.body, "/list", {
     "/list": {

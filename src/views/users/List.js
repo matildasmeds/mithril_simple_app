@@ -22,7 +22,8 @@ module.exports = {
 		     User.list.map(function(user) {
 			 return m("a.user-list-item",
 				  { onclick: onClick(user) },
-				  user.firstName + " " + user.lastName);
+				  user.firstName + " " + user.lastName
+				 );
 		     }))]
 
 		);

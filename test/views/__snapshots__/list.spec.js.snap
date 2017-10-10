@@ -1,0 +1,38 @@
+exports[`List view Creates onclick listeners for items 1`] = `
+Array [
+  Object {
+    "className": "user-list-item",
+    "onclick": [Function],
+  },
+  Object {
+    "className": "user-list-item",
+    "onclick": [Function],
+  },
+  Object {
+    "className": "user-list-item",
+    "onclick": [Function],
+  },
+]
+`;
+
+exports[`List view Creates onclick listeners for items 2`] = `
+Array [
+  Array [
+    "/edit/1",
+  ],
+]
+`;
+
+exports[`List view Shows pagination region and list of users 1`] = `
+"<div class=\"views-users-list\">
+  <div class=\"pagination-region\">
+    <div id=\"pagination-links\" class=\"pagination-links\"></div>
+  </div>
+  <div class=\"user-list\">
+    <a class=\"user-list-item\">Amiga 500</a><a class=
+    \"user-list-item\">Commodore 64</a><a class=
+    \"user-list-item\">Pentium 386</a>
+  </div>
+</div>
+"
+`;
