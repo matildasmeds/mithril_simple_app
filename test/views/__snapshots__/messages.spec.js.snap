@@ -1,0 +1,31 @@
+exports[`Messages view Is empty by default 1`] = `
+"<div class=\"messages-region\"></div>
+"
+`;
+
+exports[`Messages view Shows error message 1`] = `
+"<div class=\"messages-region\">
+  <div class=\"message error-message\">
+    Whoops.
+  </div>
+</div>
+"
+`;
+
+exports[`Messages view Shows info message 1`] = `
+"<div class=\"messages-region\">
+  <div class=\"message info-message\">
+    There are tulips in Amsterdam.
+  </div>
+</div>
+"
+`;
+
+exports[`Messages view Shows success message 1`] = `
+"<div class=\"messages-region\">
+  <div class=\"message success-message\">
+    Great Success!
+  </div>
+</div>
+"
+`;

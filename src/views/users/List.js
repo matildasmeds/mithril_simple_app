@@ -12,7 +12,9 @@ var onClick = function(user) {
 };
 
 module.exports = {
-    oninit: Pagination.getData,
+    oninit: function() {
+	Pagination.getData(); // to trigger default value handling
+    },
     view: function() {
 	return m(".views-users-list",
 		 [ m(Pagination),

@@ -4,8 +4,8 @@ var Messages = require("./Messages");
 
 var State = {
     total: null,
-    limit: null,
-    offset: null,
+    limit: 10,
+    offset: 0,
     currPage: 1,
     pageCount: 0,
     links: [],
@@ -29,17 +29,34 @@ var Link = {
 	    };
 	    Pagination.getData(opts);
 	}
+    },
+    createLinks: function() {
+	if (State.pageCount === 1) {
+	    State.links = [];
+	    return;
+	}
+	var links = [];
+	for (var page=1; page <= State.pageCount; page++) {
+	    links.push(Link.create(page));
+	}
+	State.links = links;
+    },
+    setActive: function() {
+	var links = document.getElementById("pagination-links").children;
+	for (var i = 0; i < links.length; i++) { links[i].classList.remove("active"); }
+	var active = document.getElementById("link-to-page-" + State.currPage);
+	active.classList.add("active");
     }
-}
+};
 
 var Pagination = {
     // Initialize Pagination component with Pagination.for()
     for: function(getDataCB) {
-	console.log(getDataCB);
 	Pagination.getData = function(opts) {
 	    getDataCB(opts).then(function(result) {
 		Pagination.updateLinks(result);
 	    });
+	    return Promise.resolve(Pagination); // Hook for getData().then()
 	}
 	return Pagination;
     },
@@ -57,25 +74,14 @@ var Pagination = {
         var pageCountChanged = (pageCountWas !== State.pageCount);
 
 	var currPageWas = State.currPage;
-        State.currPage = (result.offset + 10) / result.limit;
+        State.currPage = (result.offset + result.limit) / result.limit;
         var currPageChanged = (currPageWas !== State.currPage);
 
-	if (pageCountChanged) { Pagination.createLinks();
-	} else if (currPageChanged) { Pagination.setActiveLink(); }
-
-    },
-    createLinks: function() {
-	var links = [];
-	for (var page=1; page <= State.pageCount; page++) {
-	    links.push(Link.create(page));
+	if (pageCountChanged) {
+	    Link.createLinks();
+	} else if (currPageChanged) {
+	    Link.setActive();
 	}
-	State.links = links;
-    },
-    setActiveLink: function() {
-	var links = document.getElementById("pagination-links").children;
-	for (var i = 0; i < links.length; i++) { links[i].classList.remove("active"); }
-	var active = document.getElementById("link-to-page-" + State.currPage);
-	active.classList.add("active");
     },
     view: function() {
 	return m(".pagination-region",
@@ -83,7 +89,7 @@ var Pagination = {
 		     { id: "pagination-links" },
 		     State.links) ]
 		);
-    }
+    },
 };
 
 module.exports = Pagination;

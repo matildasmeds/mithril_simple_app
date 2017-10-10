@@ -1,0 +1,18 @@
+exports[`Pagination Shows no links, when just one page 1`] = `
+"<div class=\"pagination-region\">
+  <div id=\"pagination-links\" class=\"pagination-links\">
+    <a id=\"link-to-page-1\" class=\"pagination-link\">1</a><a id=
+    \"link-to-page-2\" class=\"pagination-link\">2</a><a id=
+    \"link-to-page-3\" class=\"pagination-link active\">3</a><a id=
+    \"link-to-page-4\" class=\"pagination-link\">4</a>
+  </div>
+</div>
+"
+`;
+
+exports[`Pagination Shows no links, when just one page 2`] = `
+"<div class=\"pagination-region\">
+  <div id=\"pagination-links\" class=\"pagination-links\"></div>
+</div>
+"
+`;
