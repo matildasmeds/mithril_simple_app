@@ -1,0 +1,21 @@
+exports[`Users: New Creates user, navigates to edit on submit 1`] = `Array []`;
+
+exports[`Users: New Modifies User object 1`] = `
+Object {
+  "firstName": "I like",
+  "lastName": "Coffee",
+}
+`;
+
+exports[`Users: New Shows empty form and submit button 1`] = `
+"<div class=\"userform-container\">
+  <form>
+    <label class=\"label\">First name</label><input type=\"text\"
+    placeholder=\"First name\" class=\"input firstName\"><label class=
+    \"label\">Last name</label><input placeholder=\"Last name\" class=
+    \"input lastName\"><button type=\"submit\" class=
+    \"button\">Save</button>
+  </form>
+</div>
+"
+`;

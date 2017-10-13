@@ -2,9 +2,9 @@ var m = require("mithril");
 var tidy = require("mithril-jest").tidy;
 var mq = require("mithril-query");
 
-var List = require("../../src/views/users/List.js");
-var Messages = require("../../src/views/Messages.js");
-var User = require("../../src/models/User.js");
+var List = require("../../../src/views/users/List.js");
+var Messages = require("../../../src/views/Messages.js");
+var User = require("../../../src/models/User.js");
 User.list = [
     { id: 1, firstName: "Amiga", lastName: "500" },
     { id: 2, firstName: "Commodore", lastName: "64" },
@@ -12,7 +12,7 @@ User.list = [
 ];
 var view = m(List);
 
-describe("List view", function() {
+describe("Users: List", function() {
     // Mock m.route.set
     // Mock Messages.clear
     beforeAll(function() {

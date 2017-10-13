@@ -1,4 +1,4 @@
-exports[`List view Creates onclick listeners for items 1`] = `
+exports[`Users: List Creates onclick listeners for items 1`] = `
 Array [
   Object {
     "className": "user-list-item",
@@ -15,7 +15,7 @@ Array [
 ]
 `;
 
-exports[`List view Creates onclick listeners for items 2`] = `
+exports[`Users: List Creates onclick listeners for items 2`] = `
 Array [
   Array [
     "/edit/1",
@@ -23,7 +23,7 @@ Array [
 ]
 `;
 
-exports[`List view Shows pagination region and list of users 1`] = `
+exports[`Users: List Shows pagination region and list of users 1`] = `
 "<div class=\"views-users-list\">
   <div class=\"pagination-region\">
     <div id=\"pagination-links\" class=\"pagination-links\"></div>
