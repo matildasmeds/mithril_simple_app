@@ -1,6 +1,6 @@
 {
     "name": "mithril_simple_app",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Practice project based on Mithril Simple Application tutorial",
     "main": "index.js",
     "scripts": {
